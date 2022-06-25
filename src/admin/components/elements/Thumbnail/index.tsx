@@ -33,7 +33,9 @@ const Thumbnail: React.FC<Props> = (props) => {
         />
       )}
       {!thumbnailSRC && (
-        <FileGraphic />
+        <video
+        src={'http://localhost:3000/videos/'+filename}
+      />
       )}
     </div>
   );
