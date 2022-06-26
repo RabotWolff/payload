@@ -1,0 +1,20 @@
+import { TypeWithID } from '../../config/types';
+import { PaginatedDocs } from '../../../mongoose/types';
+import { Document, Where } from '../../../types';
+import { Payload } from '../../..';
+export declare type Options = {
+    collection: string;
+    depth?: number;
+    page?: number;
+    limit?: number;
+    locale?: string;
+    fallbackLocale?: string;
+    user?: Document;
+    overrideAccess?: boolean;
+    showHiddenFields?: boolean;
+    pagination?: boolean;
+    sort?: string;
+    where?: Where;
+    draft?: boolean;
+};
+export default function findLocal<T extends TypeWithID = any>(payload: Payload, options: Options): Promise<PaginatedDocs<T>>;

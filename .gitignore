@@ -1,6 +1,5 @@
 coverage
 package-lock.json
-dist
 .idea
 cypress/videos
 cypress/screenshots
