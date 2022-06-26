@@ -10,6 +10,10 @@ const UploadCard = (props) => {
         className,
         typeof onClick === 'function' && `${baseClass}--has-on-click`,
     ].filter(Boolean).join(' ');
+    console.log("doc:");
+    console.log(doc);
+    console.log("collection:");
+    console.log(collection);
     return (React.createElement("div", { className: classes, onClick: typeof onClick === 'function' ? onClick : undefined },
         React.createElement(Thumbnail, { size: "expand", doc: doc, collection: collection }),
         React.createElement("div", { className: `${baseClass}__filename` }, typeof (doc === null || doc === void 0 ? void 0 : doc.filename) === 'string' ? doc === null || doc === void 0 ? void 0 : doc.filename : '[Untitled]')));
