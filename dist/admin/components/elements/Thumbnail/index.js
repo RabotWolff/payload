@@ -11,6 +11,6 @@ const Thumbnail = (props) => {
     ].join(' ');
     return (React.createElement("div", { className: classes },
         thumbnailSRC && (React.createElement("img", { src: thumbnailSRC, alt: filename })),
-        !thumbnailSRC && (React.createElement("video", { src: 'http://localhost:3000/videos/' + filename }))));
+        !thumbnailSRC && (React.createElement("video", { src: 'http://localhost:3000/videos/' + filename, controls: true }))));
 };
 export default Thumbnail;
