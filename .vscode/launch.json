@@ -1,0 +1,84 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Jest Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/.bin/jest",
+        "--runInBand"
+      ],
+      "env": {
+        "PAYLOAD_CONFIG_PATH": "demo/payload.config.ts"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/babel-node",
+      "port": 9229,
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "env": {
+        "PAYLOAD_CONFIG_PATH": "demo/payload.config.ts",
+        "BABEL_ENV": "development"
+      },
+      "program": "${workspaceFolder}/demo/index.js",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/babel-node",
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program - Production",
+      "env": {
+        "PAYLOAD_CONFIG_PATH": "demo/payload.config.ts",
+        "NODE_ENV": "production",
+        "BABEL_ENV": "development"
+      },
+      "program": "${workspaceFolder}/demo/index.js",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/babel-node",
+      "outputCapture": "std",
+      "runtimeArgs": [
+        "--nolazy"
+      ],
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome against Localhost",
+      "url": "http://localhost:3000/admin",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Payload Generate Types",
+      "program": "${workspaceFolder}/src/bin/generateTypes.ts",
+      "env": {
+        "PAYLOAD_CONFIG_PATH": "demo/payload.config.ts",
+      },
+      "outFiles": [
+        "${workspaceFolder}/dist/**/*.js",
+        "!**/node_modules/**"
+      ]
+    },
+  ]
+}

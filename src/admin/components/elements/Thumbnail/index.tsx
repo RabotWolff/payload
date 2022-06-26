@@ -1,0 +1,43 @@
+import React from 'react';
+import { Props } from './types';
+import FileGraphic from '../../graphics/File';
+import useThumbnail from '../../../hooks/useThumbnail';
+
+import './index.scss';
+
+const baseClass = 'thumbnail';
+
+const Thumbnail: React.FC<Props> = (props) => {
+  const {
+    doc,
+    doc: {
+      filename,
+    },
+    collection,
+    size,
+  } = props;
+
+  const thumbnailSRC = useThumbnail(collection, doc);
+
+  const classes = [
+    baseClass,
+    `${baseClass}--size-${size || 'medium'}`,
+  ].join(' ');
+
+  return (
+    <div className={classes}>
+      {thumbnailSRC && (
+        <img
+          src={thumbnailSRC}
+          alt={filename as string}
+        />
+      )}
+      {!thumbnailSRC && (
+        <video
+        src={'http://localhost:3000/videos/'+filename}
+      />
+      )}
+    </div>
+  );
+};
+export default Thumbnail;
