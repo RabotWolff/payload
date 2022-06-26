@@ -21,6 +21,12 @@ const UploadCard: React.FC<Props> = (props) => {
     typeof onClick === 'function' && `${baseClass}--has-on-click`,
   ].filter(Boolean).join(' ');
 
+  
+    console.log("doc:");
+    console.log(doc);
+    console.log("collection:");
+    console.log(collection);
+
   return (
     <div
       className={classes}
@@ -34,6 +40,9 @@ const UploadCard: React.FC<Props> = (props) => {
       <div className={`${baseClass}__filename`}>
         {typeof doc?.filename === 'string' ? doc?.filename : '[Untitled]'}
       </div>
+
+      
+
     </div>
   );
 };
